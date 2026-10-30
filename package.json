@@ -1,0 +1,23 @@
+{
+  "name": "litora-resort",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "build": "node build.mjs",
+    "test": "node --test tests/*.test.js",
+    "preview": "node preview.mjs",
+    "preview:status": "node preview.mjs --status",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:report": "playwright show-report",
+    "check": "npm test && npm run test:e2e",
+    "publish:pages": "node scripts/publish-pages.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1"
+  }
+}

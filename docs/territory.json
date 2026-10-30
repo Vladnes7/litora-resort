@@ -1,0 +1,174 @@
+{
+  "version": "spatial-v2-archviz",
+  "orientation": "inland arrival behind hotel at image top; sea in foreground at image bottom",
+  "status": "approved visual direction by user on 2026-10-29; detailed photographic consistency review ongoing",
+  "zones": [
+    {
+      "id": "hotel",
+      "name": "Главный отель",
+      "en": "Main hotel",
+      "x": 785,
+      "y": 175,
+      "type": "hotel"
+    },
+    {
+      "id": "entry",
+      "name": "Главный въезд",
+      "en": "Arrival court",
+      "x": 785,
+      "y": 75,
+      "type": "arrival"
+    },
+    {
+      "id": "spa",
+      "name": "SPA & Wellness",
+      "en": "SPA & Wellness",
+      "x": 315,
+      "y": 175,
+      "type": "spa"
+    },
+    {
+      "id": "p1",
+      "name": "Панорамный infinity",
+      "en": "Infinity pool",
+      "x": 740,
+      "y": 570,
+      "type": "pool"
+    },
+    {
+      "id": "p2",
+      "name": "Садовый бассейн",
+      "en": "Garden pool",
+      "x": 1060,
+      "y": 430,
+      "type": "pool"
+    },
+    {
+      "id": "p3",
+      "name": "Тихий подогреваемый",
+      "en": "Quiet heated pool",
+      "x": 445,
+      "y": 380,
+      "type": "pool"
+    },
+    {
+      "id": "p4",
+      "name": "Спортивный бассейн",
+      "en": "Sport pool",
+      "x": 1280,
+      "y": 285,
+      "type": "pool"
+    },
+    {
+      "id": "p5",
+      "name": "Крытый SPA-бассейн",
+      "en": "Indoor SPA pool",
+      "x": 380,
+      "y": 170,
+      "type": "pool"
+    },
+    {
+      "id": "r1",
+      "name": "Берег",
+      "en": "Bereg",
+      "x": 995,
+      "y": 250,
+      "type": "restaurant"
+    },
+    {
+      "id": "r2",
+      "name": "Terra",
+      "en": "Terra",
+      "x": 580,
+      "y": 240,
+      "type": "restaurant"
+    },
+    {
+      "id": "r3",
+      "name": "Sora",
+      "en": "Sora",
+      "x": 800,
+      "y": 260,
+      "type": "restaurant"
+    },
+    {
+      "id": "b1",
+      "name": "Lobby Lounge",
+      "en": "Lobby Lounge",
+      "x": 780,
+      "y": 225,
+      "type": "bar"
+    },
+    {
+      "id": "b2",
+      "name": "Pool Bar",
+      "en": "Pool Bar",
+      "x": 895,
+      "y": 530,
+      "type": "bar"
+    },
+    {
+      "id": "b3",
+      "name": "Beach Bar",
+      "en": "Beach Bar",
+      "x": 1305,
+      "y": 670,
+      "type": "bar"
+    },
+    {
+      "id": "b4",
+      "name": "Sunset Rooftop",
+      "en": "Sunset Rooftop",
+      "x": 790,
+      "y": 108,
+      "type": "bar"
+    },
+    {
+      "id": "e1",
+      "name": "Сцена у моря",
+      "en": "Seaside stage",
+      "x": 1400,
+      "y": 440,
+      "type": "party"
+    },
+    {
+      "id": "e2",
+      "name": "Сад торжеств",
+      "en": "Celebration garden",
+      "x": 1380,
+      "y": 570,
+      "type": "party"
+    },
+    {
+      "id": "golf",
+      "name": "Гольф-клуб",
+      "en": "Golf club",
+      "x": 170,
+      "y": 360,
+      "type": "golf"
+    },
+    {
+      "id": "beach",
+      "name": "Приватный пляж",
+      "en": "Private beach",
+      "x": 860,
+      "y": 750,
+      "type": "beach"
+    },
+    {
+      "id": "fitness",
+      "name": "Фитнес-клуб",
+      "en": "Fitness club",
+      "x": 1280,
+      "y": 220,
+      "type": "sport"
+    }
+  ],
+  "coordinate_system": {
+    "image_width": 1536,
+    "image_height": 1024,
+    "unit": "pixel on masterplan-v2-base.png"
+  },
+  "image": "../brand/masterplan-v2-base.png",
+  "supersedes": "spatial-draft-01 — rejected by user"
+}

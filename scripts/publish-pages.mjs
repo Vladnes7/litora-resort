@@ -22,6 +22,8 @@ git(['init','-b','gh-pages']);
 git(['config','user.name',readGit(['config','user.name'])]);
 git(['config','user.email',readGit(['config','user.email'])]);
 git(['remote','add','origin',remote]);
+// Reuse the source repository's objects locally so existing photographs are not uploaded twice.
+git(['fetch','--depth=1',root,'main']);
 const exists=spawnSync('git',['ls-remote','--exit-code','--heads',remote,'gh-pages'],{cwd:root,encoding:'utf8'});
 if(exists.status===0){git(['fetch','--depth=1','origin','gh-pages']);git(['update-ref','refs/heads/gh-pages','FETCH_HEAD']);}
 else if(exists.status!==2)throw Error('Cannot check the existing Pages branch');
@@ -29,6 +31,6 @@ git(['add','--all']);
 const changed=spawnSync('git',['diff','--cached','--quiet'],{cwd:directory});
 if(changed.status===0){console.log('The published files are unchanged.');process.exit(0);}
 if(changed.status!==1)throw Error('Cannot inspect the Pages changes');
-git(['commit','-m',`Publish LITORA from ${readGit(['rev-parse','--short','HEAD'])}`]);
+git(['commit','--quiet','-m',`Publish LITORA from ${readGit(['rev-parse','--short','HEAD'])}`]);
 git(['push','origin','HEAD:gh-pages']);
 console.log(`Pages branch updated: https://${owner.toLowerCase()}.github.io${base}/`);

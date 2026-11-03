@@ -88,3 +88,19 @@ test('system reduced motion disables pinned travel and autoplay without hiding c
  expect(await page.locator('[data-sc-in]').evaluateAll(elements=>elements.every(e=>getComputedStyle(e).opacity==='1'))).toBe(true);
  await noOverflow(page);
 });
+
+test('closing wave follows the scroll and stays still for reduced motion',async({page})=>{
+ await open(page);
+ const scene=page.locator('[data-surf]');await expect(scene).toHaveCount(1);
+ await page.evaluate(()=>{document.documentElement.style.scrollBehavior='auto';document.querySelector('[data-surf]').scrollIntoView();});
+ await expect(scene).toHaveClass(/surf-ready/,{timeout:15000});
+ const travel=await scene.evaluate(s=>s.offsetHeight-innerHeight);
+ await page.evaluate(d=>scrollBy(0,d),Math.round(travel*.6));
+ await expect.poll(()=>page.locator('.surf-video').evaluate(v=>v.currentTime),{timeout:5000}).toBeGreaterThan(3);
+ await expect(page.locator('.surf-copy h2')).toBeVisible();
+ await expect(page.locator('#stay-planner')).toBeVisible();
+ await page.emulateMedia({reducedMotion:'reduce'});await open(page);
+ await expect(page.locator('[data-surf]')).toHaveClass(/surf-static/);
+ expect(await page.locator('.surf-copy').evaluate(e=>getComputedStyle(e).opacity)).toBe('1');
+ await noOverflow(page);
+});

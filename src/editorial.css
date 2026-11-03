@@ -1,9 +1,9 @@
 /* LITORA — photographic scale and coastal surfaces, 30 October 2026. */
 :root{
- --surface-parchment:#eee3d2;--surface-sand:#dfcbb2;--surface-stone:#cbb8a3;
- --surface-ocean:#284b49;--surface-plum:#3b2435;--surface-copper:#78513d;
- --text-on-dark:#f5ecdc;--line-on-dark:rgba(245,236,220,.32);
- --ink:#573a28;--cream:var(--surface-parchment);--paper:var(--surface-sand);--gutter:clamp(24px,4vw,64px);
+ --surface-parchment:var(--ivory);--surface-sand:var(--sand);--surface-stone:#ece1cf;
+ --surface-ocean:var(--mocha);--surface-plum:var(--mocha-deep);--surface-copper:var(--mocha);
+ --text-on-dark:var(--sand);--line-on-dark:rgb(var(--ivory-rgb)/.24);
+ --ink:var(--mocha);--cream:var(--surface-parchment);--paper:var(--surface-sand);--gutter:clamp(24px,4vw,64px);
  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
 }
 body{background:var(--surface-parchment)}
@@ -34,8 +34,8 @@ p{text-wrap:pretty;line-height:1.65}
 .room-residence .catalogue-media{width:100%}
 .room-residence .catalogue-shot{width:100%;position:relative;overflow:hidden}
 .room-residence .catalogue-shot .photo{width:100%;margin:0}
-.room-residence .catalogue-shot .photo-open:hover img{transform:none}
-.room-residence .photo-index{top:28px;left:var(--gutter);padding:10px 15px;background:#37281f80;border-radius:2px;letter-spacing:.18em}
+@media(hover:hover) and (pointer:fine){.room-residence .catalogue-shot .photo-open:hover img{transform:none}}
+.room-residence .photo-index{top:28px;left:var(--gutter);padding:10px 15px;background:rgb(var(--mocha-rgb)/0.5);border-radius:2px;letter-spacing:.18em}
 .room-residence .catalogue-controls{margin:0;padding:8px var(--gutter);border-bottom:1px solid var(--line)}
 .room-residence .photo-dots button:after{background:currentColor}
 .room-residence .catalogue-copy{display:grid;grid-template-columns:1fr 1.1fr;gap:7vw;padding:42px var(--gutter) 64px}
@@ -47,22 +47,22 @@ p{text-wrap:pretty;line-height:1.65}
 .residence-details .room-facts dd{font-size:26px}
 .residence-details .amenity-tags{margin:16px 0 22px}
 .residence-details .catalogue-actions .pill{min-height:50px;font-size:10px}
-.room-residence .pill:hover{background:var(--cream);color:var(--ink)}
+@media(hover:hover) and (pointer:fine){.room-residence .pill:hover{background:var(--cream);color:var(--ink)}}
 .room-residence .text-link,.room-residence button{color:inherit}
 /* One large photograph is presented at a time, with all original frames available. */
 .collection-section{background:var(--surface-ocean);color:var(--text-on-dark);--line:var(--line-on-dark);padding-bottom:44px}
 .collection-section .section-head h2{font-size:clamp(44px,5vw,76px)}
 .media-album{margin-inline:calc(-1 * var(--gutter))}
 .album-view{position:relative;touch-action:pan-y;overflow:hidden}
-.album-view .photo-open:hover img{transform:none}
-.album-view .photo-index{left:var(--gutter);top:25px;background:#37281f80;padding:10px 15px}
+@media(hover:hover) and (pointer:fine){.album-view .photo-open:hover img{transform:none}}
+.album-view .photo-index{left:var(--gutter);top:25px;background:rgb(var(--mocha-rgb)/0.5);padding:10px 15px}
 .album-caption{display:flex;justify-content:space-between;gap:30px;align-items:center;padding:20px var(--gutter) 8px}
 .album-caption p{font-size:12px;letter-spacing:.04em;max-width:720px}
 .album-controls{display:flex;align-items:center;gap:24px;flex-shrink:0}
 .album-controls button{font-size:10px;letter-spacing:.16em;min-width:48px;min-height:44px;border-bottom:1px solid currentColor}
 .album-controls .micro{font-size:11px;letter-spacing:.08em;min-width:45px;text-align:center}
 .album-positions{display:flex;flex-wrap:wrap;gap:10px;padding:14px var(--gutter) 0}
-.album-positions button{min-width:44px;min-height:44px;border:1px solid #f5ecdc55;font-size:10px;letter-spacing:.1em}
+.album-positions button{min-width:44px;min-height:44px;border:1px solid rgb(var(--ivory-rgb)/0.33);font-size:10px;letter-spacing:.1em}
 .album-positions button[aria-current=true]{background:var(--text-on-dark);color:var(--surface-ocean);border-color:var(--text-on-dark)}
 /* The home page alternates sand, sea, copper and plum around full images. */
 .intro-section{grid-template-columns:1fr;gap:40px;background:var(--surface-sand);padding-block:70px}
@@ -100,7 +100,7 @@ p{text-wrap:pretty;line-height:1.65}
 .wellness-copy>p{grid-column:2;grid-row:2;font-size:15px}
 .wellness-copy>.number-note{grid-column:2;grid-row:3;margin-top:0}
 .wellness-copy>.pill{grid-column:2;grid-row:4;justify-self:start;margin-top:10px}
-.wellness-copy>.pill:hover{background:var(--cream);color:var(--surface-plum)}
+@media(hover:hover) and (pointer:fine){.wellness-copy>.pill:hover{background:var(--cream);color:var(--surface-plum)}}
 .wellness-photos{display:grid;grid-template-columns:1.4fr 1fr;gap:26px;align-items:end;padding:0}
 .wellness-photos .mini{position:static;width:100%;height:auto;border:0}
 .experiences-section{background:var(--surface-sand)}
@@ -118,7 +118,7 @@ p{text-wrap:pretty;line-height:1.65}
 #main[data-section="wellness"]>.rule{background:var(--surface-plum);color:var(--text-on-dark);border:0}
 #main[data-section="wellness"] .collection-section{background:var(--surface-ocean)}
 #main[data-section="pools"]>section:not(.page-hero):not(.stay-planner):not(.facility-practical){background:var(--surface-ocean);color:var(--text-on-dark);--line:var(--line-on-dark)}
-#main[data-section="pools"]>.facility-practical{background:var(--surface-sand);color:var(--ink);--line:rgba(99,69,50,.24)}
+#main[data-section="pools"]>.facility-practical{background:var(--surface-sand);color:var(--ink);--line:rgb(var(--mocha-rgb)/.2)}
 #main[data-section="pools"]>.section>.index-grid{grid-template-columns:1fr}
 #main[data-section="pools"] .index-grid article{display:grid;grid-template-columns:1fr 1fr;gap:0 50px;align-items:start}
 #main[data-section="pools"] .index-grid article>.image-link{grid-column:1 / -1}
@@ -229,4 +229,4 @@ p{text-wrap:pretty;line-height:1.65}
 .rail-meta{display:flex;gap:24px;align-items:center}.rail-meta [data-rail-status]{font-variant-numeric:tabular-nums;min-width:65px;font-size:12px;letter-spacing:.08em}
 @media(max-width:760px){.rail-meta>.micro:last-child{display:none}}
 
-.page-hero-editorial:after{background:linear-gradient(180deg,#1e161266,#1e161273 65%,#1e16128c)}
+.page-hero-editorial:after{background:linear-gradient(180deg,rgb(var(--shadow-rgb)/0.4),rgb(var(--shadow-rgb)/0.45) 65%,rgb(var(--shadow-rgb)/0.55))}

@@ -1,0 +1,118 @@
+/* LITORA — old money refinement layer, November 2026.
+   One dark (mocha), creams and sands for light surfaces, caramel as the only accent.
+   Loaded last; every colour comes from the tokens in styles.css :root. */
+
+/* ---- Platform floor (touch) ---------------------------------------------- */
+html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+button,a,[role=button],.pill,.gallery-arrow{touch-action:manipulation}
+button,.pill,[role=button],.gallery-arrow,.seasons button{-webkit-user-select:none;user-select:none}
+@media(pointer:coarse){input,select,textarea{font-size:16px}}
+
+/* ---- Type: lighter display weight, calmer reading text -------------------- */
+h1,h2{font-weight:300;letter-spacing:-.012em}
+h1 em,h2 em{font-weight:300}
+h3{font-weight:400;letter-spacing:-.005em}
+p{color:inherit}
+.eyebrow,.micro,.nav-link,.text-link,.pill,.tabs button,.rail-controls button,.breadcrumbs,.tag{letter-spacing:.2em}
+.eyebrow{font-weight:500}
+::selection{background:var(--latte);color:var(--mocha)}
+
+/* ---- Rhythm: more air between chapters ----------------------------------- */
+.section{padding-block:clamp(64px,8.5vw,136px)}
+.section-head{margin-bottom:clamp(32px,4vw,56px)}
+
+/* ---- Actions: one component for “button + link” rows --------------------- */
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 34px;margin-top:clamp(26px,3vw,38px)}
+.actions>*{margin:0!important}
+.actions .text-link{min-height:48px}
+.catalogue-actions{gap:14px 30px}
+.catalogue-actions>*{margin:0}
+@media(max-width:520px){
+ .actions{flex-direction:column;align-items:flex-start;gap:16px}
+}
+
+/* ---- Buttons: hover only with a mouse, press feedback everywhere ---------- */
+.pill{transition:color 220ms var(--ease-out),background-color 220ms var(--ease-out),border-color 220ms var(--ease-out),transform 140ms var(--ease-out)}
+.pill:active,.gallery-arrow:active,.seasons button:active{transform:scale(.97)}
+@media(hover:hover) and (pointer:fine){
+ .pill:hover{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+ .pill.fill:hover{background:var(--brown);border-color:var(--brown);color:var(--ivory)}
+ .wellness-copy>.pill:hover{background:var(--latte);border-color:var(--latte);color:var(--mocha)}
+}
+:focus-visible{outline:1px solid currentColor;outline-offset:5px}
+.pill:focus-visible,.gallery-arrow:focus-visible{outline-offset:4px}
+
+/* ---- Straight architecture: sections, sheets, overlays ------------------- */
+.menu-dialog{inset:0!important;width:100%!important;height:100svh!important;border-radius:0!important}
+.menu-dialog::backdrop{backdrop-filter:none;background:rgb(var(--shadow-rgb)/.5)}
+.lightbox{border-radius:0;backdrop-filter:none;background:rgb(var(--shadow-rgb)/.96)}
+
+/* ---- Galleries: controls never touch ------------------------------------- */
+.album-controls,.catalogue-controls{gap:10px}
+@media(max-width:760px){.album-controls{gap:8px}}
+
+/* ---- Lighter compositing: solid chips instead of live blur --------------- */
+.room-residence .photo-index,.album-view .photo-index{backdrop-filter:none;background:rgb(var(--mocha-rgb)/.78)}
+.seasons{backdrop-filter:blur(8px)}
+
+/* ---- Hero: a hairline frame, like a mount around a print ------------------ */
+.hero-atmosphere::after{content:'';position:absolute;inset:clamp(12px,1.8vw,26px);border:1px solid rgb(var(--ivory-rgb)/.34);pointer-events:none}
+
+/* ---- Closing on the home page: the wave reaches the planner -------------- */
+.surf-scene{position:relative;height:250svh;background:var(--ivory)}
+.surf-sticky{position:sticky;top:0;height:100svh;overflow:hidden;contain:paint}
+.surf-poster,.surf-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.surf-poster-end{opacity:0}
+.surf-video{opacity:0;transition:opacity 400ms var(--ease-out)}
+.surf-ready .surf-video{opacity:1}
+.surf-sticky::before{content:'';position:absolute;inset:0 0 auto;height:22%;z-index:1;pointer-events:none;background:linear-gradient(var(--ivory),rgb(var(--ivory-rgb)/0))}
+.surf-sticky::after{content:'';position:absolute;inset:auto 0 0;height:14%;z-index:1;pointer-events:none;background:linear-gradient(rgb(var(--ivory-rgb)/0),var(--ivory))}
+.surf-copy{--reveal:clamp(0,calc((var(--surf-p,0) - .62) * 4),1);position:absolute;z-index:2;inset:auto var(--gutter) clamp(56px,11svh,120px);max-width:880px;color:var(--mocha);opacity:var(--reveal);transform:translateY(calc((1 - var(--reveal)) * 28px))}
+.surf-copy .eyebrow{color:var(--mocha)}
+.surf-copy h2{font-size:clamp(46px,6.4vw,104px);line-height:1;text-shadow:0 0 42px rgb(var(--ivory-rgb)/.9),0 0 12px rgb(var(--ivory-rgb)/.7)}
+.surf-static{height:auto}
+.surf-static .surf-sticky{position:relative;height:min(100svh,820px)}
+.surf-static .surf-poster-end{opacity:1}
+.surf-static .surf-video{display:none}
+.surf-static .surf-copy{opacity:1;transform:none}
+
+.stay-planner{background:var(--ivory);color:var(--ink);--line:rgb(var(--mocha-rgb)/.24)}
+.stay-planner.is-shore{overflow:clip;padding-top:0}
+.stay-planner .stay-planner-copy{--line:rgb(var(--mocha-rgb)/.24)}
+.stay-planner.is-shore .stay-planner-copy{--line:rgb(var(--mocha-rgb)/.24);padding-block:clamp(48px,6vw,96px) clamp(64px,8vw,120px)}
+.stay-planner.is-shore .stay-planner-copy>p{grid-row:1 / 4;align-self:center;font-size:17px;line-height:1.7;max-width:30ch;color:var(--ink-soft)}
+.stay-planner .field,.stay-planner .small-note{color:var(--ink-soft);opacity:1}
+.stay-planner .pill.fill{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+.stay-planner select{background:var(--ivory)}
+.stay-planner input,.stay-planner select{color-scheme:light;color:var(--ink)}
+.stay-planner [aria-invalid=true]{border-color:var(--error)}
+@media(max-width:760px){.surf-scene{height:210svh}.surf-copy{inset:auto 20px 64px}}
+
+@media(prefers-reduced-motion:reduce){.surf-copy{transition:none}}
+html[data-motion="quiet"] .surf-copy{opacity:1;transform:none}
+
+/* ---- Section rhythm: never three dark chapters in a row ------------------ */
+.dining-section{background:var(--sand);color:var(--ink);--line:rgb(var(--mocha-rgb)/.2)}
+.dining-section .venue-list .micro{color:var(--caramel-ink)}
+@media(hover:hover) and (pointer:fine){.dining-section .venue-list a:hover h3{color:var(--caramel-ink)}}
+
+/* ---- Inactive tabs stay readable (AA) ------------------------------------ */
+.tabs button,.map-filters button{opacity:.74}
+
+/* ---- Gallery & map spacing ---------------------------------------------- */
+.album-positions,.photo-dots{margin-top:10px}
+@media(max-width:760px){.room-residence .catalogue-controls{padding-top:10px;gap:8px}.room-residence .photo-dots{min-width:0;flex:1}}
+.map-pin[aria-pressed=true]{z-index:3}
+@media(max-width:1180px){.map-pin{width:28px;height:28px;margin:-14px 0 0 -14px;font-size:12px}}
+
+/* ---- No layout shift before the first render ----------------------------- */
+#main:empty{min-height:100svh}
+#footer:empty{display:none}
+
+/* ---- Inner-page first screen ends on a straight line ------------------- */
+.page-hero{border-radius:0}
+.stay-planner-image>.micro{color:var(--ivory)}
+
+/* ---- Rooms: light and dark residences alternate --------------------------- */
+.room-residence[data-residence-index="4"]{background:var(--surface-stone);color:var(--ink);--line:rgb(var(--mocha-rgb)/.2)}
+.room-comparison{background:var(--surface-sand);color:var(--ink);--line:rgb(var(--mocha-rgb)/.2)}
